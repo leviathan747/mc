@@ -247,7 +247,6 @@
 .//============================================================================
 .// Mark Channel Implementation
 .//============================================================================
-.// TODO-LPS validate an implementation component
 .function MarkChannelImplementation
   .param string component_name
   .param string satisfaction_label
