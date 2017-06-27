@@ -1688,9 +1688,12 @@ CREATE TABLE TE_CHANSPEC (
     deliver_sgn STRING,
     deliver_op STRING,
     init STRING,
+    data_param STRING,
+    target_param STRING,
+    origin_param STRING,
+    raw_data STRING,
     data_mbr STRING,
-    size_mbr STRING,
-    raw_data STRING
+    size_mbr STRING
 );
 CREATE TABLE TE_CI (
     ID UNIQUE_ID,

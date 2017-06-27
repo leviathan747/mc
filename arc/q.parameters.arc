@@ -222,6 +222,7 @@ ${te_marshalling.unmarshall}( ${base_te_parm.GeneratedName}.${te_data_mbr.Genera
   .param inst_ref raw_data_dt
   .select any te_string from instances of TE_STRING
   .select any te_marshalling from instances of TE_MSHL
+  .select any te_chanspec from instances of TE_CHANSPEC
   .// Be sure we have the first parameter.
   .select any te_parm from instances of TE_PARM where (false)
   .for each te_parm in te_parms
@@ -238,8 +239,8 @@ ${te_marshalling.unmarshall}( ${base_te_parm.GeneratedName}.${te_data_mbr.Genera
   .assign counter = 2
   .while ( not_empty te_parm )
     .if ( "A0xtumlsret" != te_parm.GeneratedName )
-      .select any te_data_mbr related by raw_data_dt->S_DT[R2021]->S_SDT[R17]->S_MBR[R44]->TE_MBR[R2047] where ( selected.Name == "data" )
-      .select any te_size_mbr related by raw_data_dt->S_DT[R2021]->S_SDT[R17]->S_MBR[R44]->TE_MBR[R2047] where ( selected.Name == "size" )
+      .select any te_data_mbr related by raw_data_dt->S_DT[R2021]->S_SDT[R17]->S_MBR[R44]->TE_MBR[R2047] where ( selected.Name == te_chanspec.data_mbr )
+      .select any te_size_mbr related by raw_data_dt->S_DT[R2021]->S_SDT[R17]->S_MBR[R44]->TE_MBR[R2047] where ( selected.Name == te_chanspec.size_mbr )
       .select one c_pp related by te_parm->C_PP[R2048]
       .select one te_dt related by te_parm->TE_DT[R2049]
       .if ( not_empty c_pp )

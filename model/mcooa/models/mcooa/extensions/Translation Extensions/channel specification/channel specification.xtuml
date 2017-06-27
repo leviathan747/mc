@@ -142,7 +142,7 @@ INSERT INTO O_BATTR
 INSERT INTO O_ATTR
 	VALUES ("92144c9c-143a-4e4a-8a48-387be99fa1c7",
 	"c1ed4ab9-b6b5-4193-acf5-313eb0b83723",
-	"7058808e-8a03-4fe2-adbc-08b43fdf6805",
+	"05549e1f-d2df-4708-b1ae-3cb4010a7c46",
 	'data_mbr',
 	'',
 	'',
@@ -178,11 +178,65 @@ INSERT INTO O_BATTR
 INSERT INTO O_ATTR
 	VALUES ("05549e1f-d2df-4708-b1ae-3cb4010a7c46",
 	"c1ed4ab9-b6b5-4193-acf5-313eb0b83723",
-	"46633919-de48-44d0-be2b-012bf5f70c21",
+	"cc956468-a6f6-4fa2-a55c-07cc3f138261",
 	'raw_data',
 	'',
 	'',
 	'raw_data',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("9abe8bad-0ecd-40c0-af85-1623e7832a70",
+	"c1ed4ab9-b6b5-4193-acf5-313eb0b83723");
+INSERT INTO O_BATTR
+	VALUES ("9abe8bad-0ecd-40c0-af85-1623e7832a70",
+	"c1ed4ab9-b6b5-4193-acf5-313eb0b83723");
+INSERT INTO O_ATTR
+	VALUES ("9abe8bad-0ecd-40c0-af85-1623e7832a70",
+	"c1ed4ab9-b6b5-4193-acf5-313eb0b83723",
+	"1927d5d1-42fa-4291-83a3-c01a8de4b383",
+	'target_param',
+	'',
+	'',
+	'target_param',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("cc956468-a6f6-4fa2-a55c-07cc3f138261",
+	"c1ed4ab9-b6b5-4193-acf5-313eb0b83723");
+INSERT INTO O_BATTR
+	VALUES ("cc956468-a6f6-4fa2-a55c-07cc3f138261",
+	"c1ed4ab9-b6b5-4193-acf5-313eb0b83723");
+INSERT INTO O_ATTR
+	VALUES ("cc956468-a6f6-4fa2-a55c-07cc3f138261",
+	"c1ed4ab9-b6b5-4193-acf5-313eb0b83723",
+	"9abe8bad-0ecd-40c0-af85-1623e7832a70",
+	'origin_param',
+	'',
+	'',
+	'origin_param',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("1927d5d1-42fa-4291-83a3-c01a8de4b383",
+	"c1ed4ab9-b6b5-4193-acf5-313eb0b83723");
+INSERT INTO O_BATTR
+	VALUES ("1927d5d1-42fa-4291-83a3-c01a8de4b383",
+	"c1ed4ab9-b6b5-4193-acf5-313eb0b83723");
+INSERT INTO O_ATTR
+	VALUES ("1927d5d1-42fa-4291-83a3-c01a8de4b383",
+	"c1ed4ab9-b6b5-4193-acf5-313eb0b83723",
+	"7058808e-8a03-4fe2-adbc-08b43fdf6805",
+	'data_param',
+	'',
+	'',
+	'data_param',
 	0,
 	"ba5eda7a-def5-0000-0000-000000000004",
 	'',

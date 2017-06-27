@@ -170,7 +170,7 @@
           .select many te_parms related by te_aba->TE_PARM[R2062]
           .select any raw_data_dt from instances of TE_DT where ( false )
           .for each foreign_te_mact in foreign_te_macts
-            .select any raw_data_dt related by foreign_te_mact->TE_ABA[R2010]->TE_PARM[R2062]->TE_DT[R2049] where ( selected.Name == "raw_data" )
+            .select any raw_data_dt related by foreign_te_mact->TE_ABA[R2010]->TE_PARM[R2062]->TE_DT[R2049] where ( selected.Name == te_chanspec.raw_data )
             .break for
           .end for
           .invoke r = te_parm_BuildStructuredParameterInvocation( te_aba, te_parms, raw_data_dt )
@@ -178,9 +178,9 @@
         .elif ( is_channel_component )
           .select any te_string from instances of TE_STRING
           .select any te_string_dt from instances of TE_DT where ( selected.Name == "string" )
-          .select any base_te_parm related by te_aba->TE_PARM[R2062] where ( selected.Name == "data" )
+          .select any base_te_parm related by te_aba->TE_PARM[R2062] where ( selected.Name == te_chanspec.data_param )
           .select any raw_data_dt related by te_aba->TE_PARM[R2062]->TE_DT[R2049] where ( selected.Name == te_chanspec.raw_data )
-          .select any te_data_mbr related by raw_data_dt->S_DT[R2021]->S_SDT[R17]->S_MBR[R44]->TE_MBR[R2047] where ( selected.Name == "data" )
+          .select any te_data_mbr related by raw_data_dt->S_DT[R2021]->S_SDT[R17]->S_MBR[R44]->TE_MBR[R2047] where ( selected.Name == te_chanspec.data_mbr )
           .select any te_marshalling from instances of TE_MSHL
           .assign unmarshall_name = "  ${te_string_dt.ExtName} message_name[${te_string.max_string_length}]; "
           .assign unmarshall_name = unmarshall_name + "${te_string.memset}( message_name, 0, ${te_string.max_string_length} ); "
@@ -201,7 +201,7 @@
               .end if
               .assign structured_parameters = "parameters, ""${te_mact.ComponentName}_${te_mact.PortName}"", ""${target_name}"""
               .invoke s = t_oal_smt_iop( foreign_te_mact.GeneratedName, structured_parameters, "  ", true )
-              .select any raw_data_dt related by foreign_te_mact->TE_ABA[R2010]->TE_PARM[R2062]->TE_DT[R2049] where ( selected.Name == "raw_data" )
+              .select any raw_data_dt related by foreign_te_mact->TE_ABA[R2010]->TE_PARM[R2062]->TE_DT[R2049] where ( selected.Name == te_chanspec.raw_data )
               .select one foreign_te_aba related by foreign_te_mact->TE_ABA[R2010]
               .if ( "void" != foreign_te_aba.ReturnDataType )
                 .select many te_parms related by te_aba->TE_PARM[R2062]
@@ -216,7 +216,7 @@
               .end if
             .elif ( is_channel_component )
               .select many te_parms related by foreign_te_mact->TE_ABA[R2010]->TE_PARM[R2062]
-              .select any base_te_parm related by te_aba->TE_PARM[R2062] where ( selected.Name == "data" )
+              .select any base_te_parm related by te_aba->TE_PARM[R2062] where ( selected.Name == te_chanspec.data_param )
               .invoke r = te_parm_UnpackStructuredParameterInvocation( base_te_parm, te_parms, te_aba )
               .assign unmarshall = r.body
               .assign repack = r.repack
@@ -239,7 +239,7 @@
               .assign action_body = action_body + condition + unmarshall + message_invo + repack + "  }\n"
               .if ( ( last foreign_te_macts ) and ( "void" != te_aba.ReturnDataType ) )
                 .select any te_marshalling from instances of TE_MSHL
-                .select any te_data_mbr related by raw_data_dt->S_DT[R2021]->S_SDT[R17]->S_MBR[R44]->TE_MBR[R2047] where ( selected.Name == "data" )
+                .select any te_data_mbr related by raw_data_dt->S_DT[R2021]->S_SDT[R17]->S_MBR[R44]->TE_MBR[R2047] where ( selected.Name == te_chanspec.data_mbr )
                 .select any te_size_mbr related by raw_data_dt->S_DT[R2021]->S_SDT[R17]->S_MBR[R44]->TE_MBR[R2047] where ( selected.Name == "size" )
                 .assign action_body = ( ( ( action_body + "  " ) + ( base_te_parm.GeneratedName + "." ) ) + ( ( te_size_mbr.GeneratedName + " = " ) + ( te_marshalling.get_size + "(" ) ) ) + ( ( base_te_parm.GeneratedName + "." ) + ( te_data_mbr.GeneratedName + ");\n" ) ) 
                 .assign action_body = ( ( action_body + "  return " ) + ( base_te_parm.GeneratedName + ";\n" ) )
@@ -399,7 +399,8 @@
   .param inst_ref foreign_te_aba
   .select any te_string from instances of TE_STRING
   .select any te_marshalling from instances of TE_MSHL
-  .select any te_data_mbr related by raw_data_dt->S_DT[R2021]->S_SDT[R17]->S_MBR[R44]->TE_MBR[R2047] where ( selected.Name == "data" )
+  .select any te_chanspec from instances of TE_CHANSPEC
+  .select any te_data_mbr related by raw_data_dt->S_DT[R2021]->S_SDT[R17]->S_MBR[R44]->TE_MBR[R2047] where ( selected.Name == te_chanspec.data_mbr )
   .assign size_of = "sizeof"
   .select one ret_te_dt related by foreign_te_aba->TE_MACT[R2010]->SPR_PO[R2050]->SPR_PEP[R4503]->C_EP[R4501]->C_IO[R4004]->S_DT[R4008]->TE_DT[R2021]
   .if ( empty ret_te_dt )
@@ -427,7 +428,8 @@
 .function te_aba_StructuredReturn2
   .param inst_ref te_aba
   .param inst_ref raw_data_dt
-  .select any te_data_mbr related by raw_data_dt->S_DT[R2021]->S_SDT[R17]->S_MBR[R44]->TE_MBR[R2047] where ( selected.Name == "data" )
+  .select any te_chanspec from instances of TE_CHANSPEC
+  .select any te_data_mbr related by raw_data_dt->S_DT[R2021]->S_SDT[R17]->S_MBR[R44]->TE_MBR[R2047] where ( selected.Name == te_chanspec.data_mbr )
   .select any te_string from instances of TE_STRING
   .select any te_marshalling from instances of TE_MSHL
   .select any sret_te_parm related by te_aba->TE_PARM[R2062] where ( selected.Name == "A0xtumlsret" )

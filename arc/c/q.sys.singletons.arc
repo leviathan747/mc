@@ -295,9 +295,12 @@
   .assign te_chanspec.deliver_sgn = "deliver_sgn"
   .assign te_chanspec.deliver_op = "deliver_op"
   .assign te_chanspec.init = "initialize"
+  .assign te_chanspec.data_param = "data"
+  .assign te_chanspec.target_param = "target"
+  .assign te_chanspec.origin_param = "origin"
+  .assign te_chanspec.raw_data = "raw_data"
   .assign te_chanspec.data_mbr = "data"
   .assign te_chanspec.size_mbr = "size"
-  .assign te_chanspec.raw_data = "raw_data"
 .end function
 .//
 .//

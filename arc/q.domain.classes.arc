@@ -11,6 +11,7 @@
   .select any te_set from instances of TE_SET
   .select any te_target from instances of TE_TARGET
   .select any te_thread from instances of TE_THREAD
+  .select any te_chanspec from instances of TE_CHANSPEC
   .assign attr_has_process_declaration = ""
   .while ( not_empty te_sync )
     .if ( te_sync.IsInitFunction and te_sync.XlateSemantics )
@@ -18,12 +19,12 @@
     .end if
     .select one te_sync related by te_sync->TE_SYNC[R2095.'succeeds']
   .end while
-  .select any prov_init_sgn related by te_c->TE_SF[R2203.'has requirement connected to']->TE_C[R2202]->TE_PO[R2005]->TE_MACT[R2006] where ( ( selected.MessageName == "initialize" ) and ( selected.PortName == "PROV" ) )
+  .select any prov_init_sgn related by te_c->TE_SF[R2203.'has requirement connected to']->TE_C[R2202]->TE_PO[R2005]->TE_MACT[R2006] where ( ( selected.MessageName == te_chanspec.init ) and ( selected.PortName == te_chanspec.prov_port ) )
   .if ( not_empty prov_init_sgn )
     .select any te_po related by te_c->TE_SF[R2203.'has requirement connected to']->TE_MACT[R2200]->TE_PO[R2006] where ( selected.Provision )
   ${prov_init_sgn.GeneratedName}( "${te_c.Name}_${te_po.Name}", "" );
   .end if
-  .select any req_init_sgn related by te_c->TE_SF[R2203.'has provision connected to']->TE_C[R2202]->TE_PO[R2005]->TE_MACT[R2006] where ( ( selected.MessageName == "initialize" ) and ( selected.PortName == "REQ" ) )
+  .select any req_init_sgn related by te_c->TE_SF[R2203.'has provision connected to']->TE_C[R2202]->TE_PO[R2005]->TE_MACT[R2006] where ( ( selected.MessageName == te_chanspec.init ) and ( selected.PortName == te_chanspec.req_port ) )
   .if ( not_empty req_init_sgn )
     .select any te_po related by te_c->TE_SF[R2203.'has provision connected to']->TE_MACT[R2200]->TE_PO[R2006] where ( not selected.Provision )
     .select any foreign_te_po related by te_c->TE_SF[R2203.'has provision connected to']->TE_MACT[R2200]->TE_PO[R2006] where ( selected.Provision )
