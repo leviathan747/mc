@@ -47,6 +47,8 @@ static const ${te_typemap.object_number_name} * const class_thread_assignment[ S
       .end if
       .if ( not_empty te_sm )
   &${te_dci.task_list}[0]${delimiter}
+      .else
+  0${delimiter}
       .end if
     .end while
 };

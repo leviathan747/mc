@@ -80,18 +80,19 @@ ${system_parameters}
 /*
  * Core types with byte widths defined for MISRA-C compliance.
  */
+#include <stdint.h>
 typedef          char    c_t;
 typedef unsigned char   uc_t;
 typedef          int     i_t;
 typedef unsigned int    ui_t;
 typedef          long    l_t;
 typedef unsigned long   ul_t;
-typedef   signed char   s1_t;
-typedef unsigned char   u1_t;
-typedef   signed short  s2_t;
-typedef unsigned short  u2_t;
-typedef   signed long   s4_t;
-typedef unsigned long   u4_t;
+typedef        int8_t   s1_t;
+typedef       uint8_t   u1_t;
+typedef        int16_t  s2_t;
+typedef       uint16_t  u2_t;
+typedef       int32_t   s4_t;
+typedef      uint32_t   u4_t;
 typedef          double r_t;
 typedef          float  r4_t;
 typedef          double r8_t;

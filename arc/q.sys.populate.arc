@@ -2488,11 +2488,7 @@
       .end if
     .end while
     .if ( not_empty cursor_te_c )
-      .if ( "pyrsl v0.6.0-9-ga2640be-dirty (2017-04-24)" > info.interpreter_version )
-        .assign prev_te_c.nextID = 00
-      .else
-        .unrelate prev_te_c from cursor_te_c across R2017.'precedes'
-      .end if
+      .unrelate prev_te_c from cursor_te_c across R2017.'precedes'
       .relate te_c to cursor_te_c across R2017.'precedes'
     .end if
     .relate prev_te_c to te_c across R2017.'precedes'
