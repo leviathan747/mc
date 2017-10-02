@@ -216,8 +216,7 @@
                 .invoke r = te_aba_StructuredReturn2( te_aba, raw_data_dt )
                 .assign action_body = action_body + r.body
               .end if
-            .elif ( is_channel_component )
-              .if ( ( ( ( te_chanspec.deliver_op == te_mact.MessageName ) and ( te_chanspec.prov_port == te_mact.PortName ) ) or ( ( te_chanspec.deliver_op == te_mact.MessageName ) and ( te_chanspec.req_port == te_mact.PortName ) ) ) or ( ( ( te_chanspec.deliver_sgn == te_mact.MessageName ) and ( te_chanspec.prov_port == te_mact.PortName ) ) or ( ( te_chanspec.deliver_sgn == te_mact.MessageName ) and ( te_chanspec.req_port == te_mact.PortName ) ) ) )
+            .elif ( ( is_channel_component ) and ( ( ( ( te_chanspec.deliver_op == te_mact.MessageName ) and ( te_chanspec.prov_port == te_mact.PortName ) ) or ( ( te_chanspec.deliver_op == te_mact.MessageName ) and ( te_chanspec.req_port == te_mact.PortName ) ) ) or ( ( ( te_chanspec.deliver_sgn == te_mact.MessageName ) and ( te_chanspec.prov_port == te_mact.PortName ) ) or ( ( te_chanspec.deliver_sgn == te_mact.MessageName ) and ( te_chanspec.req_port == te_mact.PortName ) ) ) ) )
               .select many te_parms related by foreign_te_mact->TE_ABA[R2010]->TE_PARM[R2062]
               .select any base_te_parm related by te_aba->TE_PARM[R2062] where ( selected.Name == te_chanspec.data_param )
               .invoke r = te_parm_UnpackStructuredParameterInvocation( base_te_parm, te_parms, te_aba )
@@ -246,7 +245,6 @@
                 .select any te_size_mbr related by raw_data_dt->S_DT[R2021]->S_SDT[R17]->S_MBR[R44]->TE_MBR[R2047] where ( selected.Name == "size" )
                 .assign action_body = ( ( ( action_body + "  " ) + ( base_te_parm.GeneratedName + "." ) ) + ( ( te_size_mbr.GeneratedName + " = " ) + ( te_marshalling.get_size + "(" ) ) ) + ( ( base_te_parm.GeneratedName + "." ) + ( te_data_mbr.GeneratedName + ");\n" ) ) 
                 .assign action_body = ( ( action_body + "  return " ) + ( base_te_parm.GeneratedName + ";\n" ) )
-              .end if
               .end if
             .else
               .invoke s = t_oal_smt_iop( foreign_te_mact.GeneratedName, te_aba.ParameterInvocation, "  ", true )
