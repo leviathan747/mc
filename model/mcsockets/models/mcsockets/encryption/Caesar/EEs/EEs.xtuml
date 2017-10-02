@@ -1,0 +1,124 @@
+-- BP 7.1.6 content: Package syschar: 3 persistence-version: 7.1.6
+
+INSERT INTO EP_PKG
+	VALUES ("88c1bc71-b3ce-4608-88d1-24b547a6d7c1",
+	"00000000-0000-0000-0000-000000000000",
+	"fcc009f4-22ed-4091-b6e3-bced238b1692",
+	'EEs',
+	'',
+	0);
+INSERT INTO GD_MD
+	VALUES ("55891ec2-b121-400f-9906-fa589b5369c6",
+	112,
+	"88c1bc71-b3ce-4608-88d1-24b547a6d7c1",
+	108,
+	0,
+	0,
+	1,
+	1,
+	1,
+	12,
+	1,
+	0,
+	0,
+	200,
+	150,
+	0,
+	'',
+	'mcsockets::encryption::Caesar::EEs');
+INSERT INTO GD_GE
+	VALUES ("7ac16ff7-938f-4b84-a7fb-26539ddecf98",
+	"55891ec2-b121-400f-9906-fa589b5369c6",
+	"6a2843f6-183c-4cf3-8d49-ac95fe764cb0",
+	12,
+	0,
+	'mcsockets::encryption::Caesar::EEs::rot13');
+INSERT INTO GD_SHP
+	VALUES ("7ac16ff7-938f-4b84-a7fb-26539ddecf98");
+INSERT INTO GD_NCS
+	VALUES ("7ac16ff7-938f-4b84-a7fb-26539ddecf98");
+INSERT INTO DIM_ND
+	VALUES (200.000000,
+	150.000000,
+	"7ac16ff7-938f-4b84-a7fb-26539ddecf98");
+INSERT INTO DIM_GE
+	VALUES (0.000000,
+	0.000000,
+	"7ac16ff7-938f-4b84-a7fb-26539ddecf98",
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO DIM_ELE
+	VALUES ("7ac16ff7-938f-4b84-a7fb-26539ddecf98",
+	0,
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO DIM_DIA
+	VALUES ("55891ec2-b121-400f-9906-fa589b5369c6",
+	'',
+	1.000000,
+	0.000000,
+	0.000000,
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO S_EE
+	VALUES ("6a2843f6-183c-4cf3-8d49-ac95fe764cb0",
+	'rot13',
+	'',
+	'rot13',
+	"00000000-0000-0000-0000-000000000000",
+	'',
+	'rot13',
+	1);
+INSERT INTO S_BRG
+	VALUES ("66a055d9-324d-4497-ab18-6ac7dac44b70",
+	"6a2843f6-183c-4cf3-8d49-ac95fe764cb0",
+	'rot13',
+	'',
+	0,
+	"7d129d7e-4b5c-4eab-ada9-00ddae08aa7d",
+	'',
+	3,
+	'',
+	0);
+INSERT INTO S_BPARM
+	VALUES ("74105702-f388-4373-80f0-4541cf5ecf0f",
+	"66a055d9-324d-4497-ab18-6ac7dac44b70",
+	'data',
+	"7d129d7e-4b5c-4eab-ada9-00ddae08aa7d",
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	'');
+INSERT INTO S_DT_PROXY
+	VALUES ("7d129d7e-4b5c-4eab-ada9-00ddae08aa7d",
+	"00000000-0000-0000-0000-000000000000",
+	'bstring',
+	'binary data represented as a string. WARNING regular string operations that require well defined strings (e.g. string concatenation) are
+unsafe with this type',
+	'',
+	'../../../../../../mcshared/models/mcshared/channel/channel.xtuml');
+INSERT INTO PE_PE
+	VALUES ("6a2843f6-183c-4cf3-8d49-ac95fe764cb0",
+	1,
+	"88c1bc71-b3ce-4608-88d1-24b547a6d7c1",
+	"00000000-0000-0000-0000-000000000000",
+	5);
+INSERT INTO PE_PE
+	VALUES ("88c1bc71-b3ce-4608-88d1-24b547a6d7c1",
+	1,
+	"00000000-0000-0000-0000-000000000000",
+	"7e6a5d30-d55f-4dfd-8a54-d52bcf80f513",
+	7);
+INSERT INTO C_C_PROXY
+	VALUES ("7e6a5d30-d55f-4dfd-8a54-d52bcf80f513",
+	"00000000-0000-0000-0000-000000000000",
+	"00000000-0000-0000-0000-000000000000",
+	'Caesar',
+	'',
+	0,
+	"00000000-0000-0000-0000-000000000000",
+	0,
+	'',
+	'../Caesar.xtuml');
+INSERT INTO S_SYS_PROXY
+	VALUES ("fcc009f4-22ed-4091-b6e3-bced238b1692",
+	'mcsockets',
+	1,
+	'../../../mcsockets.xtuml');
