@@ -176,6 +176,7 @@
           .invoke r = te_parm_BuildStructuredParameterInvocation( te_aba, te_parms, raw_data_dt )
           .assign action_body = action_body + r.body
         .elif ( is_channel_component )
+          .if ( ( ( ( te_chanspec.deliver_op == te_mact.MessageName ) and ( te_chanspec.prov_port == te_mact.PortName ) ) or ( ( te_chanspec.deliver_op == te_mact.MessageName ) and ( te_chanspec.req_port == te_mact.PortName ) ) ) or ( ( ( te_chanspec.deliver_sgn == te_mact.MessageName ) and ( te_chanspec.prov_port == te_mact.PortName ) ) or ( ( te_chanspec.deliver_sgn == te_mact.MessageName ) and ( te_chanspec.req_port == te_mact.PortName ) ) ) )
           .select any te_string from instances of TE_STRING
           .select any te_string_dt from instances of TE_DT where ( selected.Name == "string" )
           .select any base_te_parm related by te_aba->TE_PARM[R2062] where ( selected.Name == te_chanspec.data_param )
@@ -186,6 +187,7 @@
           .assign unmarshall_name = unmarshall_name + "${te_string.memset}( message_name, 0, ${te_string.max_string_length} ); "
           .assign unmarshall_name = unmarshall_name + "${te_marshalling.unmarshall}( ${base_te_parm.GeneratedName}.${te_data_mbr.GeneratedName}, message_name, 0 );\n"
           .assign action_body = action_body + unmarshall_name
+          .end if
         .end if
         .assign conditional_test = "  if"
         .for each foreign_te_mact in foreign_te_macts
@@ -215,6 +217,7 @@
                 .assign action_body = action_body + r.body
               .end if
             .elif ( is_channel_component )
+              .if ( ( ( ( te_chanspec.deliver_op == te_mact.MessageName ) and ( te_chanspec.prov_port == te_mact.PortName ) ) or ( ( te_chanspec.deliver_op == te_mact.MessageName ) and ( te_chanspec.req_port == te_mact.PortName ) ) ) or ( ( ( te_chanspec.deliver_sgn == te_mact.MessageName ) and ( te_chanspec.prov_port == te_mact.PortName ) ) or ( ( te_chanspec.deliver_sgn == te_mact.MessageName ) and ( te_chanspec.req_port == te_mact.PortName ) ) ) )
               .select many te_parms related by foreign_te_mact->TE_ABA[R2010]->TE_PARM[R2062]
               .select any base_te_parm related by te_aba->TE_PARM[R2062] where ( selected.Name == te_chanspec.data_param )
               .invoke r = te_parm_UnpackStructuredParameterInvocation( base_te_parm, te_parms, te_aba )
@@ -244,6 +247,7 @@
                 .assign action_body = ( ( ( action_body + "  " ) + ( base_te_parm.GeneratedName + "." ) ) + ( ( te_size_mbr.GeneratedName + " = " ) + ( te_marshalling.get_size + "(" ) ) ) + ( ( base_te_parm.GeneratedName + "." ) + ( te_data_mbr.GeneratedName + ");\n" ) ) 
                 .assign action_body = ( ( action_body + "  return " ) + ( base_te_parm.GeneratedName + ";\n" ) )
               .end if
+              .end if
             .else
               .invoke s = t_oal_smt_iop( foreign_te_mact.GeneratedName, te_aba.ParameterInvocation, "  ", true )
               .if ( "void" != te_aba.ReturnDataType )
@@ -254,8 +258,10 @@
           .end if
         .end for
       .elif ( ( empty foreign_te_macts ) and ( is_channel_component ) )
+        .if ( ( ( ( te_chanspec.deliver_op == te_mact.MessageName ) and ( te_chanspec.prov_port == te_mact.PortName ) ) or ( ( te_chanspec.deliver_op == te_mact.MessageName ) and ( te_chanspec.req_port == te_mact.PortName ) ) ) or ( ( ( te_chanspec.deliver_sgn == te_mact.MessageName ) and ( te_chanspec.prov_port == te_mact.PortName ) ) or ( ( te_chanspec.deliver_sgn == te_mact.MessageName ) and ( te_chanspec.req_port == te_mact.PortName ) ) ) )
         .if ( "void" != te_aba.ReturnDataType )
           .assign action_body = "  {" + te_aba.ReturnDataType + " A0xtumlret;\n  return A0xtumlret;}\n"
+        .end if
         .end if
       .else
         .// CDS agilegc
