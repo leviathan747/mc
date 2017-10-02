@@ -537,7 +537,7 @@ else
   end if;
   // create the return request with the same sync_id
   create object instance reply_request of request;
-  reply_data = ?;
+  select any reply_data from instances of raw_data where false;
   if ( CONFIG::encryption_enabled() )
     reply_data = raw_data::encrypt( raw_data:return_parameters );
   else

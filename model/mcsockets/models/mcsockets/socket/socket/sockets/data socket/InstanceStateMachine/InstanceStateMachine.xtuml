@@ -2086,7 +2086,7 @@ else
       message.data.size = size;
       // message is complete create inbound request
       create object instance request of request;
-      received_data = ?;
+      select any received_data from instances of raw_data where false;
       if ( CONFIG::encryption_enabled() )
         received_data = raw_data::decrypt( raw_data:message.data );
       else
