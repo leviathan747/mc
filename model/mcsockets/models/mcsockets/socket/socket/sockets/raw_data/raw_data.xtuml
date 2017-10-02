@@ -84,8 +84,9 @@ INSERT INTO O_TFR
 	0,
 	'create object instance raw_data of raw_data;
 old_data = param.raw_data;
-raw_data.data = CRYPT::decrypt( data:old_data.data, size:old_data.size );
+raw_data.data = SYS::malloc( size: old_data.size );
 raw_data.size = old_data.size;
+SYS::memcpy( dst:raw_data.data, src:CRYPT::encrypt( data:old_data.data, size:old_data.size ), size:raw_data.size );
 return raw_data;',
 	1,
 	'',
@@ -109,8 +110,9 @@ INSERT INTO O_TFR
 	0,
 	'create object instance raw_data of raw_data;
 old_data = param.raw_data;
-raw_data.data = CRYPT::decrypt( data:old_data.data, size:old_data.size );
+raw_data.data = SYS::malloc( size: old_data.size );
 raw_data.size = old_data.size;
+SYS::memcpy( dst:raw_data.data, src:CRYPT::decrypt( data:old_data.data, size:old_data.size ), size:raw_data.size );
 return raw_data;',
 	1,
 	'',

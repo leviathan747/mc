@@ -380,8 +380,8 @@ INSERT INTO DIM_ND
 	0.000000,
 	"3ddf8908-fb7a-4835-8f4f-93c8d0f03783");
 INSERT INTO DIM_GE
-	VALUES (0.000000,
-	0.000000,
+	VALUES (4551.000000,
+	3059.000000,
 	"3ddf8908-fb7a-4835-8f4f-93c8d0f03783",
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO DIM_ELE
@@ -584,7 +584,7 @@ while ( not done )
         timeout = STRING::atoi( s:STRING::trim( s:values[1] ) );
       elif ( "encryption" == values[0] )
         config = CONFIG::get_instance();
-        config.encryption_enabled = ( "true" == values[2] );
+        config.encryption_enabled = ( "true" == STRING::trim( s:values[1] ) );
       end if;
     end if;
   else
@@ -739,7 +739,7 @@ while ( not done )
         backlog = STRING::atoi( s:STRING::trim( s:values[1] ) );
       elif ( "encryption" == values[0] )
         config = CONFIG::get_instance();
-        config.encryption_enabled = ( "true" == values[2] );
+        config.encryption_enabled = ( "true" == STRING::trim( s:values[1] ) );
       end if;
     end if;
   else
