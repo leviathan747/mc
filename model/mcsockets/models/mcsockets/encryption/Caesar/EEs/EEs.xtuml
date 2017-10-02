@@ -74,7 +74,7 @@ INSERT INTO S_BRG
 	0,
 	"7d129d7e-4b5c-4eab-ada9-00ddae08aa7d",
 	'',
-	3,
+	1,
 	'',
 	0);
 INSERT INTO S_BPARM
@@ -94,6 +94,15 @@ INSERT INTO S_DT_PROXY
 unsafe with this type',
 	'',
 	'../../../../../../mcshared/models/mcshared/channel/channel.xtuml');
+INSERT INTO S_BPARM
+	VALUES ("db8e3855-45ba-44a8-8dbb-f1f1779ef9a9",
+	"66a055d9-324d-4497-ab18-6ac7dac44b70",
+	'size',
+	"ba5eda7a-def5-0000-0000-000000000002",
+	0,
+	'',
+	"74105702-f388-4373-80f0-4541cf5ecf0f",
+	'');
 INSERT INTO PE_PE
 	VALUES ("6a2843f6-183c-4cf3-8d49-ac95fe764cb0",
 	1,
