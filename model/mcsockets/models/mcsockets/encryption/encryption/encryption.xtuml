@@ -1,0 +1,75 @@
+-- BP 7.1.6 content: Interface syschar: 3 persistence-version: 7.1.6
+
+INSERT INTO C_I
+	VALUES ("f9e217aa-dae0-49ad-9b04-463060517027",
+	"00000000-0000-0000-0000-000000000000",
+	'encryption',
+	'');
+INSERT INTO C_EP
+	VALUES ("8ec39712-f960-4d07-bfef-36f0c17d2c43",
+	"f9e217aa-dae0-49ad-9b04-463060517027",
+	-1,
+	'encrypt',
+	'');
+INSERT INTO C_IO
+	VALUES ("8ec39712-f960-4d07-bfef-36f0c17d2c43",
+	"7d129d7e-4b5c-4eab-ada9-00ddae08aa7d",
+	'encrypt',
+	'',
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO S_DT_PROXY
+	VALUES ("7d129d7e-4b5c-4eab-ada9-00ddae08aa7d",
+	"00000000-0000-0000-0000-000000000000",
+	'bstring',
+	'binary data represented as a string. WARNING regular string operations that require well defined strings (e.g. string concatenation) are
+unsafe with this type',
+	'',
+	'../../../../../mcshared/models/mcshared/channel/channel.xtuml');
+INSERT INTO C_PP
+	VALUES ("41705805-df87-4d84-97ab-6c2f31889899",
+	"8ec39712-f960-4d07-bfef-36f0c17d2c43",
+	"7d129d7e-4b5c-4eab-ada9-00ddae08aa7d",
+	'data',
+	'',
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO C_EP
+	VALUES ("32eaf9e1-497d-4023-b6f7-a76142da48dc",
+	"f9e217aa-dae0-49ad-9b04-463060517027",
+	-1,
+	'decrypt',
+	'');
+INSERT INTO C_IO
+	VALUES ("32eaf9e1-497d-4023-b6f7-a76142da48dc",
+	"7d129d7e-4b5c-4eab-ada9-00ddae08aa7d",
+	'decrypt',
+	'',
+	0,
+	'',
+	"8ec39712-f960-4d07-bfef-36f0c17d2c43");
+INSERT INTO C_PP
+	VALUES ("7bbd58fb-c2db-443b-8a0f-2b6334d7e75c",
+	"32eaf9e1-497d-4023-b6f7-a76142da48dc",
+	"7d129d7e-4b5c-4eab-ada9-00ddae08aa7d",
+	'data',
+	'',
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO PE_PE
+	VALUES ("f9e217aa-dae0-49ad-9b04-463060517027",
+	1,
+	"71c6f5e0-0594-4043-b7d2-2bd1f7ad0058",
+	"00000000-0000-0000-0000-000000000000",
+	6);
+INSERT INTO EP_PKG_PROXY
+	VALUES ("71c6f5e0-0594-4043-b7d2-2bd1f7ad0058",
+	"fcc009f4-22ed-4091-b6e3-bced238b1692",
+	"fcc009f4-22ed-4091-b6e3-bced238b1692",
+	'encryption',
+	'',
+	0,
+	'../encryption.xtuml');

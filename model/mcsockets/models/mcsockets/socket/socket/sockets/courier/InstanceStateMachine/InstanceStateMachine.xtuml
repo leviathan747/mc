@@ -537,7 +537,12 @@ else
   end if;
   // create the return request with the same sync_id
   create object instance reply_request of request;
-  reply_data = raw_data::duplicate( raw_data:return_parameters );
+  reply_data = ?;
+  if ( CONFIG::encryption_enabled() )
+    reply_data = raw_data::encrypt( raw_data:return_parameters );
+  else
+    reply_data = raw_data::duplicate( raw_data:return_parameters );
+  end if;
   generate request1:create( data:reply_data, target:request.origin, origin:request.target, inbound:false, sync_id:request.sync_id+1, is_reply:true ) to reply_request;
 end if;
 

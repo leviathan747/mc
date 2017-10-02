@@ -63,6 +63,11 @@ INSERT INTO DIM_CON
 	4100.000000,
 	3384.000000,
 	"ef90c973-0dde-40e9-936f-a2e8dfd8962f");
+INSERT INTO DIM_CON
+	VALUES ("0eb15618-b555-45ae-a121-541d1a152489",
+	4632.000000,
+	3100.000000,
+	"ef90c973-0dde-40e9-936f-a2e8dfd8962f");
 INSERT INTO GD_GE
 	VALUES ("ab8aaa62-1692-42ca-b376-3d73dd6ad4b4",
 	"ff918817-46a9-4f5c-aa9e-0bf3a1f7f584",
@@ -335,6 +340,106 @@ INSERT INTO DIM_ELE
 	VALUES ("abdcc7cb-f8a4-4753-b0b0-45063cf7f04b",
 	0,
 	"ef90c973-0dde-40e9-936f-a2e8dfd8962f");
+INSERT INTO GD_GE
+	VALUES ("d12ab949-d87a-41b7-801f-8c8557a315cb",
+	"ff918817-46a9-4f5c-aa9e-0bf3a1f7f584",
+	"5772df04-c299-4a18-8dae-f1d69c5299c4",
+	93,
+	0,
+	'mcsockets::socket::socket::CRYPT::encryption');
+INSERT INTO GD_CON
+	VALUES ("d12ab949-d87a-41b7-801f-8c8557a315cb",
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO GD_CTXT
+	VALUES ("343a43c1-dd8b-41d4-9cfd-b91c044a4ef9",
+	"d12ab949-d87a-41b7-801f-8c8557a315cb",
+	1,
+	0.000000,
+	0.000000);
+INSERT INTO DIM_ND
+	VALUES (0.000000,
+	0.000000,
+	"343a43c1-dd8b-41d4-9cfd-b91c044a4ef9");
+INSERT INTO DIM_GE
+	VALUES (0.000000,
+	0.000000,
+	"343a43c1-dd8b-41d4-9cfd-b91c044a4ef9",
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO DIM_ELE
+	VALUES ("343a43c1-dd8b-41d4-9cfd-b91c044a4ef9",
+	0,
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO GD_CTXT
+	VALUES ("3ddf8908-fb7a-4835-8f4f-93c8d0f03783",
+	"d12ab949-d87a-41b7-801f-8c8557a315cb",
+	3,
+	0.000000,
+	0.000000);
+INSERT INTO DIM_ND
+	VALUES (0.000000,
+	0.000000,
+	"3ddf8908-fb7a-4835-8f4f-93c8d0f03783");
+INSERT INTO DIM_GE
+	VALUES (0.000000,
+	0.000000,
+	"3ddf8908-fb7a-4835-8f4f-93c8d0f03783",
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO DIM_ELE
+	VALUES ("3ddf8908-fb7a-4835-8f4f-93c8d0f03783",
+	0,
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO GD_CTXT
+	VALUES ("eb50eb6b-e512-429a-a382-f47e1cf3398a",
+	"d12ab949-d87a-41b7-801f-8c8557a315cb",
+	2,
+	0.000000,
+	0.000000);
+INSERT INTO DIM_ND
+	VALUES (0.000000,
+	0.000000,
+	"eb50eb6b-e512-429a-a382-f47e1cf3398a");
+INSERT INTO DIM_GE
+	VALUES (0.000000,
+	0.000000,
+	"eb50eb6b-e512-429a-a382-f47e1cf3398a",
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO DIM_ELE
+	VALUES ("eb50eb6b-e512-429a-a382-f47e1cf3398a",
+	0,
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO GD_LS
+	VALUES ("d512aa6e-bc13-48e7-8010-e4f02b6b21dc",
+	"d12ab949-d87a-41b7-801f-8c8557a315cb",
+	"00000000-0000-0000-0000-000000000000",
+	"33efecbf-ed18-48c5-be83-84b1f028846b",
+	"03252db5-671c-4687-bd7a-dee0d7fa0abc");
+INSERT INTO DIM_WAY
+	VALUES ("33efecbf-ed18-48c5-be83-84b1f028846b",
+	4632.000000,
+	3100.000000,
+	"d12ab949-d87a-41b7-801f-8c8557a315cb",
+	"00000000-0000-0000-0000-000000000000",
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO DIM_WAY
+	VALUES ("03252db5-671c-4687-bd7a-dee0d7fa0abc",
+	4633.000000,
+	3030.000000,
+	"d12ab949-d87a-41b7-801f-8c8557a315cb",
+	"00000000-0000-0000-0000-000000000000",
+	"33efecbf-ed18-48c5-be83-84b1f028846b");
+INSERT INTO DIM_GE
+	VALUES (0.000000,
+	0.000000,
+	"d12ab949-d87a-41b7-801f-8c8557a315cb",
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO DIM_ELE
+	VALUES ("d12ab949-d87a-41b7-801f-8c8557a315cb",
+	0,
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO DIM_ED
+	VALUES ("0eb15618-b555-45ae-a121-541d1a152489",
+	"00000000-0000-0000-0000-000000000000",
+	"d12ab949-d87a-41b7-801f-8c8557a315cb");
 INSERT INTO DIM_DIA
 	VALUES ("ff918817-46a9-4f5c-aa9e-0bf3a1f7f584",
 	'',
@@ -370,7 +475,12 @@ INSERT INTO SPR_PO
 	'// create the request
 sync_id = UTIL::id_factory();
 create object instance request of request;
-data = raw_data::duplicate( raw_data:param.data );
+data = ?;
+if ( CONFIG::encryption_enabled() )
+  data = raw_data::encrypt( raw_data:param.data );
+else
+  data = raw_data::duplicate( raw_data:param.data );
+end if;
 generate request1:create( data:data, target:param.target, origin:param.origin, inbound:false, sync_id:sync_id, is_reply:false ) to request;
 
 // wait for the return request
@@ -431,7 +541,12 @@ INSERT INTO SPR_PS
 	'post_sgn',
 	'',
 	'create object instance request of request;
-data = raw_data::duplicate( raw_data:param.data );
+data = ?;
+if ( CONFIG::encryption_enabled() )
+  data = raw_data::encrypt( raw_data:param.data );
+else
+  data = raw_data::duplicate( raw_data:param.data );
+end if;
 generate request1:create( data:data, target:param.target, origin:param.origin, inbound:false, sync_id:0, is_reply:false ) to request;',
 	1,
 	0);
@@ -467,6 +582,9 @@ while ( not done )
         server_port = STRING::atoi( s:STRING::trim( s:values[1] ) );
       elif ( "timeout" == values[0] )
         timeout = STRING::atoi( s:STRING::trim( s:values[1] ) );
+      elif ( "encryption" == values[0] )
+        config = CONFIG::get_instance();
+        config.encryption_enabled = ( "true" == values[2] );
       end if;
     end if;
   else
@@ -536,7 +654,12 @@ INSERT INTO SPR_PO
 	'// create the request
 sync_id = UTIL::id_factory();
 create object instance request of request;
-data = raw_data::duplicate( raw_data:param.data );
+data = ?;
+if ( CONFIG::encryption_enabled() )
+  data = raw_data::encrypt( raw_data:param.data );
+else
+  data = raw_data::duplicate( raw_data:param.data );
+end if;
 generate request1:create( data:data, target:param.target, origin:param.origin, inbound:false, sync_id:sync_id, is_reply:false ) to request;
 
 // wait for the return request
@@ -583,7 +706,12 @@ INSERT INTO SPR_PS
 	'post_sgn',
 	'',
 	'create object instance request of request;
-data = raw_data::duplicate( raw_data:param.data );
+data = ?;
+if ( CONFIG::encryption_enabled() )
+  data = raw_data::encrypt( raw_data:param.data );
+else
+  data = raw_data::duplicate( raw_data:param.data );
+end if;
 generate request1:create( data:data, target:"", origin:param.origin, inbound:false, sync_id:0, is_reply:false ) to request;',
 	1,
 	0);
@@ -609,6 +737,9 @@ while ( not done )
         server_port = STRING::atoi( s:STRING::trim( s:values[1] ) );
       elif ( "backlog" == values[0] )
         backlog = STRING::atoi( s:STRING::trim( s:values[1] ) );
+      elif ( "encryption" == values[0] )
+        config = CONFIG::get_instance();
+        config.encryption_enabled = ( "true" == values[2] );
       end if;
     end if;
   else
@@ -630,6 +761,65 @@ INSERT INTO SPR_PS
 	'',
 	1,
 	0);
+INSERT INTO C_PO
+	VALUES ("e71b5917-6f95-44c9-9111-8788b4bdc8e8",
+	"c899e5c4-386f-4888-a6ac-e44cb7b924ef",
+	'CRYPT',
+	0,
+	0);
+INSERT INTO C_IR
+	VALUES ("5772df04-c299-4a18-8dae-f1d69c5299c4",
+	"f9e217aa-dae0-49ad-9b04-463060517027",
+	"00000000-0000-0000-0000-000000000000",
+	"e71b5917-6f95-44c9-9111-8788b4bdc8e8");
+INSERT INTO C_R
+	VALUES ("5772df04-c299-4a18-8dae-f1d69c5299c4",
+	'encryption',
+	'',
+	'Unnamed Interface',
+	'socket::CRYPT::encryption');
+INSERT INTO SPR_REP
+	VALUES ("4d3b9018-9a5e-4f6e-aa9b-c222081a2ffd",
+	"8ec39712-f960-4d07-bfef-36f0c17d2c43",
+	"5772df04-c299-4a18-8dae-f1d69c5299c4");
+INSERT INTO SPR_RO
+	VALUES ("4d3b9018-9a5e-4f6e-aa9b-c222081a2ffd",
+	'encrypt',
+	'',
+	'',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("8ec39712-f960-4d07-bfef-36f0c17d2c43",
+	"f9e217aa-dae0-49ad-9b04-463060517027",
+	-1,
+	'encrypt',
+	'',
+	'../../encryption/encryption/encryption.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("04524d9d-77cd-488c-8383-191da3b92f17",
+	"32eaf9e1-497d-4023-b6f7-a76142da48dc",
+	"5772df04-c299-4a18-8dae-f1d69c5299c4");
+INSERT INTO SPR_RO
+	VALUES ("04524d9d-77cd-488c-8383-191da3b92f17",
+	'decrypt',
+	'',
+	'',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("32eaf9e1-497d-4023-b6f7-a76142da48dc",
+	"f9e217aa-dae0-49ad-9b04-463060517027",
+	-1,
+	'decrypt',
+	'',
+	'../../encryption/encryption/encryption.xtuml');
+INSERT INTO C_I_PROXY
+	VALUES ("f9e217aa-dae0-49ad-9b04-463060517027",
+	"00000000-0000-0000-0000-000000000000",
+	'encryption',
+	'',
+	'../../encryption/encryption/encryption.xtuml');
 INSERT INTO PE_PE
 	VALUES ("c899e5c4-386f-4888-a6ac-e44cb7b924ef",
 	1,

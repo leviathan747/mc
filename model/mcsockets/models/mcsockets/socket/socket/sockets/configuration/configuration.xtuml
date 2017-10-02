@@ -1,0 +1,86 @@
+-- BP 7.1.6 content: ModelClass syschar: 3 persistence-version: 7.1.6
+
+INSERT INTO O_OBJ
+	VALUES ("e0ebecbd-c5ee-4fcb-9787-f0d225e5c3ef",
+	'configuration',
+	11,
+	'CONFIG',
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO O_TFR
+	VALUES ("b6152914-61a0-4018-a14c-10436284381d",
+	"e0ebecbd-c5ee-4fcb-9787-f0d225e5c3ef",
+	'get_instance',
+	'',
+	"43998d55-7bed-4f78-8917-39a11984ff01",
+	0,
+	'select any config from instances of CONFIG;
+if ( empty config )
+  create object instance config of CONFIG;
+end if;
+return config;',
+	1,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	0);
+INSERT INTO S_DT_PROXY
+	VALUES ("43998d55-7bed-4f78-8917-39a11984ff01",
+	"00000000-0000-0000-0000-000000000000",
+	'inst_ref<configuration>',
+	'',
+	'',
+	'../sockets.xtuml');
+INSERT INTO O_TFR
+	VALUES ("47c13cb0-f14d-40b0-a418-d42609be7ce1",
+	"e0ebecbd-c5ee-4fcb-9787-f0d225e5c3ef",
+	'encryption_enabled',
+	'',
+	"ba5eda7a-def5-0000-0000-000000000001",
+	0,
+	'config = CONFIG::get_instance();
+return config.encryption_enabled;',
+	1,
+	'',
+	"b6152914-61a0-4018-a14c-10436284381d",
+	0);
+INSERT INTO O_NBATTR
+	VALUES ("b7321a10-a28b-4842-8db6-a5a5477c5bbd",
+	"e0ebecbd-c5ee-4fcb-9787-f0d225e5c3ef");
+INSERT INTO O_BATTR
+	VALUES ("b7321a10-a28b-4842-8db6-a5a5477c5bbd",
+	"e0ebecbd-c5ee-4fcb-9787-f0d225e5c3ef");
+INSERT INTO O_ATTR
+	VALUES ("b7321a10-a28b-4842-8db6-a5a5477c5bbd",
+	"e0ebecbd-c5ee-4fcb-9787-f0d225e5c3ef",
+	"00000000-0000-0000-0000-000000000000",
+	'encryption_enabled',
+	'',
+	'',
+	'encryption_enabled',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000001",
+	'',
+	'');
+INSERT INTO O_ID
+	VALUES (0,
+	"e0ebecbd-c5ee-4fcb-9787-f0d225e5c3ef");
+INSERT INTO O_ID
+	VALUES (1,
+	"e0ebecbd-c5ee-4fcb-9787-f0d225e5c3ef");
+INSERT INTO O_ID
+	VALUES (2,
+	"e0ebecbd-c5ee-4fcb-9787-f0d225e5c3ef");
+INSERT INTO PE_PE
+	VALUES ("e0ebecbd-c5ee-4fcb-9787-f0d225e5c3ef",
+	1,
+	"326814d5-c8d3-4592-aa8d-14658c4f155c",
+	"00000000-0000-0000-0000-000000000000",
+	4);
+INSERT INTO EP_PKG_PROXY
+	VALUES ("326814d5-c8d3-4592-aa8d-14658c4f155c",
+	"00000000-0000-0000-0000-000000000000",
+	"fcc009f4-22ed-4091-b6e3-bced238b1692",
+	'sockets',
+	'',
+	0,
+	'../sockets.xtuml');

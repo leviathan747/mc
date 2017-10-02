@@ -75,6 +75,56 @@ return raw_data;',
 	'',
 	"64d830eb-e519-42d0-9dd1-d01b18749637",
 	0);
+INSERT INTO O_TFR
+	VALUES ("586c75f1-1681-48db-ace3-c26d0aa26000",
+	"fa393054-f18a-47c2-a6d4-783f89d10c65",
+	'encrypt',
+	'',
+	"e12f6fe5-d2f2-4c1f-92e4-d2b011ba4041",
+	0,
+	'create object instance raw_data of raw_data;
+old_data = param.raw_data;
+raw_data.data = CRYPT::decrypt( data:old_data.data );
+raw_data.size = old_data.size;
+return raw_data;',
+	1,
+	'',
+	"cf02aa5a-3638-4c70-aaef-402c8ffc47ac",
+	0);
+INSERT INTO O_TPARM
+	VALUES ("c230727b-0d55-40c7-98d3-8dc71ddc362b",
+	"586c75f1-1681-48db-ace3-c26d0aa26000",
+	'raw_data',
+	"427a2e87-38ca-4d2b-a66d-eabf304ff889",
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	'');
+INSERT INTO O_TFR
+	VALUES ("477c8371-8e9b-43a1-97e9-01d04a647bb2",
+	"fa393054-f18a-47c2-a6d4-783f89d10c65",
+	'decrypt',
+	'',
+	"e12f6fe5-d2f2-4c1f-92e4-d2b011ba4041",
+	0,
+	'create object instance raw_data of raw_data;
+old_data = param.raw_data;
+raw_data.data = CRYPT::decrypt( data:old_data.data );
+raw_data.size = old_data.size;
+return raw_data;',
+	1,
+	'',
+	"586c75f1-1681-48db-ace3-c26d0aa26000",
+	0);
+INSERT INTO O_TPARM
+	VALUES ("3a8257bc-3d6f-48b0-8cac-a1de276c72fa",
+	"477c8371-8e9b-43a1-97e9-01d04a647bb2",
+	'raw_data',
+	"427a2e87-38ca-4d2b-a66d-eabf304ff889",
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	'');
 INSERT INTO O_NBATTR
 	VALUES ("3778c2c9-297e-4fe0-bb9e-a74a196aba7f",
 	"fa393054-f18a-47c2-a6d4-783f89d10c65");
