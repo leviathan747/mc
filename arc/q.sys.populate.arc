@@ -2326,8 +2326,7 @@
   .param inst_ref ep_pkg
   .select one te_c related by ep_pkg->PE_PE[R8001]->C_C[R8003]->TE_C[R2054]
   .if ( ( empty te_c ) and ( not_empty ep_pkg ) )
-    .// CDS - Role phrase will be reversed in OAL.
-    .select many referring_ep_pkgs related by ep_pkg->EP_PKGREF[R1402.'refers to']->EP_PKG[R1402.'refers to']
+    .select many referring_ep_pkgs related by ep_pkg->EP_PKGREF[R1402.'is referenced by']->EP_PKG[R1402.'is referenced by']
     .select any te_c related by referring_ep_pkgs->PE_PE[R8001]->C_C[R8003]->TE_C[R2054]
     .if ( empty te_c )
       .select one parent_ep_pkg related by ep_pkg->PE_PE[R8001]->EP_PKG[R8000]
