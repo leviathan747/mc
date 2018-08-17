@@ -1958,6 +1958,64 @@ for each o_tparm in o_tparms
 end for;
 total_error_count = total_error_count + local_error_count;
 local_error_count = 0;
+select many o_defs from instances of O_DEF;
+for each o_def in o_defs
+  instance_count = instance_count + 1;
+  trace = ::check_trace( trace_attribute:"Tfr_ID", trace_id:o_def.Tfr_ID, name:"" );
+  select many duplicate_o_defs from instances of O_DEF where ( selected.Tfr_ID == o_def.Tfr_ID and selected.Rel_ID == o_def.Rel_ID );
+  if ( cardinality duplicate_o_defs != 1 )
+    ::check_log( message: "uniqueness violation in O_DEF for identifier 1", trace:trace );
+    local_error_count = local_error_count + 1;
+    if ( 10 < local_error_count )
+      break;
+    end if;
+  end if;
+  check_count = check_count + 1;
+  // associator one participation R126:  Deferral(O_DEF) -> Operation(O_TFR)
+  // checking conditional link only if referential attribute is non-null
+  if ( not ( ::is_null_id( id:o_def.Tfr_ID ) ) )
+  select one o_tfr related by o_def->O_TFR[R126];
+  if ( empty o_tfr )
+    ::check_log( message: "one instance not found O_DEF->O_TFR[R126]", trace:trace );
+    local_error_count = local_error_count + 1;
+    if ( 10 < local_error_count )
+      break;
+    end if;
+  else
+    if ( not ( o_tfr.Tfr_ID == o_def.Tfr_ID ) )
+      ::check_log( message: "referentials do not match identifiers between O_DEF and O_TFR", trace:trace );
+      local_error_count = local_error_count + 1;
+      if ( 10 < local_error_count )
+        break;
+      end if;
+    end if;
+  end if;
+  check_count = check_count + 1;
+  end if;
+  // associator other participation R126:  Deferral(O_DEF) -> Association(R_REL)
+  // checking conditional link only if referential attribute is non-null
+  if ( not ( ::is_null_id( id:o_def.Rel_ID ) ) )
+  select one r_rel related by o_def->R_REL[R126];
+  if ( empty r_rel )
+    ::check_log( message: "one instance not found O_DEF->R_REL[R126]", trace:trace );
+    local_error_count = local_error_count + 1;
+    if ( 10 < local_error_count )
+      break;
+    end if;
+  else
+    if ( not ( r_rel.Rel_ID == o_def.Rel_ID ) )
+      ::check_log( message: "referentials do not match identifiers between O_DEF and R_REL", trace:trace );
+      local_error_count = local_error_count + 1;
+      if ( 10 < local_error_count )
+        break;
+      end if;
+    end if;
+  end if;
+  check_count = check_count + 1;
+  end if;
+end for;
+total_error_count = total_error_count + local_error_count;
+local_error_count = 0;
 select many r_rels from instances of R_REL;
 for each r_rel in r_rels
   instance_count = instance_count + 1;
@@ -15274,10 +15332,19 @@ local_error_count = 0;
 select many c_sfs from instances of C_SF;
 for each c_sf in c_sfs
   instance_count = instance_count + 1;
-  trace = ::check_trace( trace_attribute:"Id", trace_id:c_sf.Id, name:"" );
+  trace = ::check_trace( trace_attribute:"Requirement_Id", trace_id:c_sf.Requirement_Id, name:"" );
   select many duplicate_c_sfs from instances of C_SF where ( selected.Id == c_sf.Id );
   if ( cardinality duplicate_c_sfs != 1 )
     ::check_log( message: "uniqueness violation in C_SF for identifier 1", trace:trace );
+    local_error_count = local_error_count + 1;
+    if ( 10 < local_error_count )
+      break;
+    end if;
+  end if;
+  check_count = check_count + 1;
+  select many duplicate_c_sfs from instances of C_SF where ( selected.Requirement_Id == c_sf.Requirement_Id and selected.Provision_Id == c_sf.Provision_Id );
+  if ( cardinality duplicate_c_sfs != 1 )
+    ::check_log( message: "uniqueness violation in C_SF for identifier 2", trace:trace );
     local_error_count = local_error_count + 1;
     if ( 10 < local_error_count )
       break;
@@ -16978,6 +17045,102 @@ INSERT INTO S_SPARM
 	'');
 INSERT INTO PE_PE
 	VALUES ("5956ac3c-391a-4f96-8468-c715f5fa0bd3",
+	1,
+	"e409e116-2060-4994-8235-9f2ecc5db2b9",
+	"00000000-0000-0000-0000-000000000000",
+	1);
+INSERT INTO S_SYNC
+	VALUES ("573ff8cb-0146-4abc-a8d6-aae0440598e2",
+	"00000000-0000-0000-0000-000000000000",
+	'check_referential_integrity_architecture',
+	'',
+	'',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	1,
+	'',
+	0);
+INSERT INTO PE_PE
+	VALUES ("573ff8cb-0146-4abc-a8d6-aae0440598e2",
+	1,
+	"e409e116-2060-4994-8235-9f2ecc5db2b9",
+	"00000000-0000-0000-0000-000000000000",
+	1);
+INSERT INTO S_SYNC
+	VALUES ("823d06c6-953b-43e3-bce8-d4ab1e58d54e",
+	"00000000-0000-0000-0000-000000000000",
+	'check_referential_integrity_compiler',
+	'',
+	'',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	1,
+	'',
+	0);
+INSERT INTO PE_PE
+	VALUES ("823d06c6-953b-43e3-bce8-d4ab1e58d54e",
+	1,
+	"e409e116-2060-4994-8235-9f2ecc5db2b9",
+	"00000000-0000-0000-0000-000000000000",
+	1);
+INSERT INTO S_SYNC
+	VALUES ("da7cf4a7-2813-4091-a734-6fc64faa3a87",
+	"00000000-0000-0000-0000-000000000000",
+	'check_referential_integrity_ooaofmarking',
+	'',
+	'',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	1,
+	'',
+	0);
+INSERT INTO PE_PE
+	VALUES ("da7cf4a7-2813-4091-a734-6fc64faa3a87",
+	1,
+	"e409e116-2060-4994-8235-9f2ecc5db2b9",
+	"00000000-0000-0000-0000-000000000000",
+	1);
+INSERT INTO S_SYNC
+	VALUES ("908ccc08-0785-4156-ac4b-069f7663b6da",
+	"00000000-0000-0000-0000-000000000000",
+	'check_referential_integrity_loader',
+	'',
+	'',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	1,
+	'',
+	0);
+INSERT INTO PE_PE
+	VALUES ("908ccc08-0785-4156-ac4b-069f7663b6da",
+	1,
+	"e409e116-2060-4994-8235-9f2ecc5db2b9",
+	"00000000-0000-0000-0000-000000000000",
+	1);
+INSERT INTO S_SYNC
+	VALUES ("6b4ca378-0508-426d-b74e-82c4a52db12e",
+	"00000000-0000-0000-0000-000000000000",
+	'check_referential_integrity_templating',
+	'',
+	'',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	1,
+	'',
+	0);
+INSERT INTO PE_PE
+	VALUES ("6b4ca378-0508-426d-b74e-82c4a52db12e",
+	1,
+	"e409e116-2060-4994-8235-9f2ecc5db2b9",
+	"00000000-0000-0000-0000-000000000000",
+	1);
+INSERT INTO S_SYNC
+	VALUES ("b6ae9d33-0960-4a55-b391-20fd5b8c8363",
+	"00000000-0000-0000-0000-000000000000",
+	'check_referential_integrity_RSL',
+	'',
+	'',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	1,
+	'',
+	0);
+INSERT INTO PE_PE
+	VALUES ("b6ae9d33-0960-4a55-b391-20fd5b8c8363",
 	1,
 	"e409e116-2060-4994-8235-9f2ecc5db2b9",
 	"00000000-0000-0000-0000-000000000000",

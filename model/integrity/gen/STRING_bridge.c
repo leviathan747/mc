@@ -44,17 +44,22 @@ STRING_itoa( const i_t p_i )
   mapping[0] = Escher_strcpy( mapping[0], "0" );
   /* ASSIGN i = PARAM.i */
   i = p_i;
-  /* ASSIGN s =  */
-  s = Escher_strcpy( s, "" );
-  /* WHILE ( ( i >= 1 ) ) */
-  while ( ( i >= 1 ) ) {
-    i_t d;
-    /* ASSIGN d = ( i % 10 ) */
-    d = ( i % 10 );
-    /* ASSIGN i = ( i / 10 ) */
-    i = ( i / 10 );
-    /* ASSIGN s = ( mapping[d] + s ) */
-    s = Escher_strcpy( s, Escher_stradd( mapping[d], s ) );
+  if ( 0 == i ) {
+    s = Escher_strcpy( s, "0" );
+  }
+  else {
+    /* ASSIGN s =  */
+    s = Escher_strcpy( s, "" );
+    /* WHILE ( ( i >= 1 ) ) */
+    while ( ( i >= 1 ) ) {
+      i_t d;
+      /* ASSIGN d = ( i % 10 ) */
+      d = ( i % 10 );
+      /* ASSIGN i = ( i / 10 ) */
+      i = ( i / 10 );
+      /* ASSIGN s = ( mapping[d] + s ) */
+      s = Escher_strcpy( s, Escher_stradd( mapping[d], s ) );
+    }
   }
   /* RETURN s */
   {c_t * xtumlOALrv = s;

@@ -44,6 +44,7 @@ UserInitializationCalloutf( c_t * argv0 )
  * This function is invoked immediately prior to executing any xtUML
  * initialization functions.
  */
+#include <stdlib.h>
 void
 UserPreOoaInitializationCalloutf( int argc, c_t ** argv )
 {
@@ -53,6 +54,13 @@ UserPreOoaInitializationCalloutf( int argc, c_t ** argv )
   }
   Escher_xtUML_load( 2, a );
   integrity_check_referential_integrity();
+  integrity_check_referential_integrity_architecture();
+  integrity_check_referential_integrity_compiler();
+  integrity_check_referential_integrity_loader();
+  integrity_check_referential_integrity_ooaofmarking();
+  integrity_check_referential_integrity_RSL();
+  integrity_check_referential_integrity_templating();
+  exit(0);
 }
 
 /*

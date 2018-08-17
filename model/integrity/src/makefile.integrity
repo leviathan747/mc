@@ -1,5 +1,5 @@
 CC=gcc
-CFLAGS=-Wno-pointer-to-int-cast -Wno-parentheses-equality
+CFLAGS=-Wno-pointer-to-int-cast -Wno-parentheses-equality -g
 SOURCES := $(shell ls *.c)
 OBJECTS=$(SOURCES:.c=.o)
 EXECUTABLE=integrity
