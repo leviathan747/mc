@@ -481,9 +481,32 @@ INSERT INTO O_ATTR
 	"ba5eda7a-def5-0000-0000-000000000004",
 	'',
 	'te_prefix.result + "SetSymmetricDifference"');
+INSERT INTO O_NBATTR
+	VALUES ("65ee570f-c779-4ada-bbc2-c1cff1ee89af",
+	"331cf64d-3364-408e-aee3-cf70a09801d9");
+INSERT INTO O_BATTR
+	VALUES ("65ee570f-c779-4ada-bbc2-c1cff1ee89af",
+	"331cf64d-3364-408e-aee3-cf70a09801d9");
+INSERT INTO O_ATTR
+	VALUES ("65ee570f-c779-4ada-bbc2-c1cff1ee89af",
+	"331cf64d-3364-408e-aee3-cf70a09801d9",
+	"954a372d-8b53-4ac3-ad08-4a87597b104b",
+	'id',
+	'',
+	'',
+	'id',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000005",
+	'',
+	'');
 INSERT INTO O_ID
 	VALUES (0,
 	"331cf64d-3364-408e-aee3-cf70a09801d9");
+INSERT INTO O_OIDA
+	VALUES ("65ee570f-c779-4ada-bbc2-c1cff1ee89af",
+	"331cf64d-3364-408e-aee3-cf70a09801d9",
+	0,
+	'id');
 INSERT INTO O_ID
 	VALUES (1,
 	"331cf64d-3364-408e-aee3-cf70a09801d9");
