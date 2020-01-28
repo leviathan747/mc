@@ -56,6 +56,9 @@ if ( empty td )
   LOG::LogFailure( message:"failed to select TypeDeclaration" );
 end if;
 
+args[0] = "";
+LOAD::load(java_class:"deploy.StratusTestLoader", args:args);
+
 LOG::LogInfo( message: "stratus done with init" );
 control stop;',
 	"ba5eda7a-def5-0000-0000-000000000000",
@@ -64,6 +67,49 @@ control stop;',
 	0);
 INSERT INTO PE_PE
 	VALUES ("bcbf2531-8a7b-4659-a445-5783771b5034",
+	1,
+	"77bc6bb7-31af-4a74-b7d5-3525c62d7e1c",
+	"00000000-0000-0000-0000-000000000000",
+	1);
+INSERT INTO S_SYNC
+	VALUES ("5f5a1437-37bf-42b3-91cf-2bdeda4e183d",
+	"00000000-0000-0000-0000-000000000000",
+	'test_function',
+	'',
+	'LOG::LogInfo(message:"In my nice function.");
+LOG::LogInteger(message:param.foo);
+return "Levi is cool.";',
+	"ba5eda7a-def5-0000-0000-000000000004",
+	1,
+	'',
+	0);
+INSERT INTO S_SPARM
+	VALUES ("9d1ca2f6-8630-4d60-a3ee-5099ab58e0ea",
+	"5f5a1437-37bf-42b3-91cf-2bdeda4e183d",
+	'foo',
+	"ba5eda7a-def5-0000-0000-000000000002",
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	'');
+INSERT INTO S_SPARM
+	VALUES ("d47941f9-87d0-4e06-b9f2-7000aea526c1",
+	"5f5a1437-37bf-42b3-91cf-2bdeda4e183d",
+	'bar',
+	"9a733b24-23eb-4767-a50c-4a61ca7c912e",
+	0,
+	'',
+	"9d1ca2f6-8630-4d60-a3ee-5099ab58e0ea",
+	'');
+INSERT INTO S_DT_PROXY
+	VALUES ("9a733b24-23eb-4767-a50c-4a61ca7c912e",
+	"00000000-0000-0000-0000-000000000000",
+	'Field',
+	'',
+	'',
+	'../../../../../../ooamasl/models/ooamasl/Shared/Shared.xtuml');
+INSERT INTO PE_PE
+	VALUES ("5f5a1437-37bf-42b3-91cf-2bdeda4e183d",
 	1,
 	"77bc6bb7-31af-4a74-b7d5-3525c62d7e1c",
 	"00000000-0000-0000-0000-000000000000",
